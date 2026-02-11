@@ -2,8 +2,7 @@ const counterEl = document.getElementById("counter");
 const incrementBtn = document.getElementById("incrementBtn");
 const decrementBtn = document.getElementById("decrementBtn");
 const resetBtn = document.getElementById("resetBtn");
-const annaImage = document.getElementById("annaImage");
-const flashText = document.getElementById("flashText");
+const imageWrapper = document.getElementById("imageWrapper");
 
 const STORAGE_KEY = "annaButtheadCount";
 
@@ -21,9 +20,18 @@ function saveCount() {
   localStorage.setItem(STORAGE_KEY, count);
 }
 
-// Update display
+// Update UI
 function updateDisplay() {
   counterEl.textContent = count;
+}
+
+// Show image for 3 seconds
+function flashImage() {
+  imageWrapper.classList.remove("hidden");
+
+  setTimeout(() => {
+    imageWrapper.classList.add("hidden");
+  }, 3000);
 }
 
 // Increment
@@ -31,18 +39,7 @@ incrementBtn.addEventListener("click", () => {
   count++;
   updateDisplay();
   saveCount();
-
-  // Shake image
-  annaImage.classList.add("shake");
-  setTimeout(() => {
-    annaImage.classList.remove("shake");
-  }, 400);
-
-  // Flash overlay text
-  flashText.classList.add("flash-active");
-  setTimeout(() => {
-    flashText.classList.remove("flash-active");
-  }, 500);
+  flashImage();
 });
 
 // Decrement
@@ -56,7 +53,7 @@ decrementBtn.addEventListener("click", () => {
 
 // Reset
 resetBtn.addEventListener("click", () => {
-  if (confirm("Reset the Butthead counter?")) {
+  if (confirm("Reset counter?")) {
     count = 0;
     updateDisplay();
     saveCount();
