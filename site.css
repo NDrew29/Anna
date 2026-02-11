@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Anna Is A Butthead Counter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="site.css" />
+</head>
+<body>
+
+  <div class="container">
+    <h1>Anna Is A “Butthead” Counter</h1>
+    <p class="subtitle">For scientific tracking purposes only.</p>
+
+    <div class="image-wrapper">
+      <img src="IMG_0857.jpeg" id="annaImage" alt="Anna" />
+      <div id="flashText" class="flash-text">BUTTHEAD DETECTED</div>
+    </div>
+
+    <div class="counter-card">
+      <div id="counter" class="counter">0</div>
+
+      <div class="button-group">
+        <button id="incrementBtn" class="btn primary">
+          + Butthead Moment
+        </button>
+
+        <button id="decrementBtn" class="btn danger">
+          - Undo
+        </button>
+
+        <button id="resetBtn" class="btn neutral">
+          Reset
+        </button>
+      </div>
+    </div>
+
+    <p class="footer-note">Data stored locally on this device.</p>
+  </div>
+
+  <script src="site.js"></script>
+</body>
+</html>
